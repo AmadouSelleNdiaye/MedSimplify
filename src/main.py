@@ -1,4 +1,5 @@
 import argparse
+import pandas as pd
 from model.t5_small import T5_small
 
 def argument_parser():
@@ -39,16 +40,21 @@ if __name__=="__main__":
     input_text = args.input
 
 
-    if args.model == "t5_small":
-        t5_small= T5_small()
-        model= t5_small.model
-        tokenizer= t5_small.tokenizer
+    if model == "t5_small":
+        t5_small= T5_small(quantization=quantization)
 
         if input_text:
             text_to_process = "Summarize the medical report: " + input_text
     
             result = t5_small.predict(text_to_process)
             print("The simplified report is : "+ result)
+    if dataset:
+        splits = {'train': 'train.csv', 'validation': 'validation.csv', 'test': 'test.csv'}
+        df_train = pd.read_csv("hf://datasets/cbasu/Med-EASi/" + splits["train"])
+
+        df_test = pd.read_csv("hf://datasets/cbasu/Med-EASi/" + splits["test"])
+
+        df_validation = pd.read_csv("hf://datasets/cbasu/Med-EASi/" + splits["validation"])
             
 
         
