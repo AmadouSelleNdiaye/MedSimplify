@@ -1,3 +1,8 @@
 .medisimpenv
 /medisimpenv/
 /src/model/__pycache__/
+medsimpenv/
+t5-med-simplify-trainer/
+t5-med-simplify/
+/t5-med-simplify/
+t5-med-simplify/
