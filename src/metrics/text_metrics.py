@@ -82,6 +82,7 @@ def compute_sari(source, pred, ref):
 
     return (np.mean(score_add) + np.mean(score_keep) + np.mean(score_del)) / 3
 
+"""
 
 # Load the dataset
 dataset = load_dataset("cbasu/Med-EASi", split="train")
@@ -101,3 +102,5 @@ for src, ref in zip(sources, references):
 print("BLEU moyenne:", np.mean(bleu_scores))
 print("ROUGE-L moyenne:", np.mean(rouge_scores))
 print("SARI moyenne :", np.mean(sari_scores))
+
+"""
